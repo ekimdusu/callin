@@ -27,37 +27,3 @@ elif menu == 'Yazıyı İngilizce sese çevir':
         audioFile = open('output.mp3', 'rb')
         audioBytes = audioFile.read()
         st.audio(audioBytes, format='audio/ogg',start_time=0)
-#elif menu == 'Sesi İngilizce yazıya çevir':
-    r = sr.Recognizer()
-    #st.write(sd.query_devices())
-    fs = 44100 
-    seconds = 5
-    myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=1, dtype='int16')
-    sd.wait()  
-    write('output.wav', fs, myrecording) 
-
-    with sr.AudioFile('/Users/hisuser/Desktop/AI/Project12/output.wav') as source:
-        audio = r.listen(source)  
-    try:
-        text = r.recognize_google(audio, language="tr-tr")
-        translator = google_translator()  
-        translate_text = translator.translate(text, lang_tgt='en')  
-        st.write(translate_text)
-    except sr.UnknownValueError:
-        st.write("Söylediğini anlamadım")
-#elif menu == 'Sesi yazıya çeviri':
-    r = sr.Recognizer()
-    #st.write(sd.query_devices())
-    fs = 44100 
-    seconds = 5
-    myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=1, dtype='int16')
-    sd.wait()  
-    write('output.wav', fs, myrecording) 
-
-    with sr.AudioFile('/Users/hisuser/Desktop/AI/Project12/output.wav') as source:
-        audio = r.listen(source)  
-    try:
-        text = r.recognize_google(audio, language="tr-tr")
-        st.write(text)
-    except sr.UnknownValueError:
-        st.write("Söylediğini anlamadım")
