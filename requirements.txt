@@ -1,0 +1,9 @@
+streamlit
+speech_recognition
+gtts
+os
+subprocess
+pydub
+google_trans_new
+sounddevice
+scipy
