@@ -1,9 +1,7 @@
 import streamlit as st
 import speech_recognition as sr
 from gtts import gTTS 
-import os
 from os import path
-import subprocess
 import pydub as AudioSegment
 from google_trans_new import google_translator  
 import sounddevice as sd
@@ -29,7 +27,7 @@ elif menu == 'Yazıyı İngilizce sese çevir':
         audioFile = open('output.mp3', 'rb')
         audioBytes = audioFile.read()
         st.audio(audioBytes, format='audio/ogg',start_time=0)
-elif menu == 'Sesi İngilizce yazıya çevir':
+#elif menu == 'Sesi İngilizce yazıya çevir':
     r = sr.Recognizer()
     #st.write(sd.query_devices())
     fs = 44100 
@@ -47,7 +45,7 @@ elif menu == 'Sesi İngilizce yazıya çevir':
         st.write(translate_text)
     except sr.UnknownValueError:
         st.write("Söylediğini anlamadım")
-elif menu == 'Sesi yazıya çeviri':
+#elif menu == 'Sesi yazıya çeviri':
     r = sr.Recognizer()
     #st.write(sd.query_devices())
     fs = 44100 
