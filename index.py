@@ -4,7 +4,7 @@ from gtts import gTTS
 from os import path
 import pydub as AudioSegment
 from google_trans_new import google_translator  
-import sounddevice as sd
+#import sounddevice as sd
 from scipy.io.wavfile import write
 
 st.sidebar.title("ML çeviri denemeleri")
