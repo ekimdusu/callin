@@ -1,9 +1,8 @@
-streamlit
-speech_recognition
-gtts
+streamlit==0.64.0
+speech_recognition==3.8.1
+gTTS==2.2.3
 os
-subprocess
-pydub
-google_trans_new
-sounddevice
-scipy
+pydub==0.25.1
+google_trans_new==1.1.9
+sounddevice==0.4.2
+scipy==1.7.1
