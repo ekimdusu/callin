@@ -3,7 +3,7 @@ import speech_recognition as sr
 from gtts import gTTS 
 from os import path
 import pydub as AudioSegment
-import google_trans_new as google_translator  
+import google_trans_new from google_translator  
 #import sounddevice as sd
 from scipy.io.wavfile import write
 
