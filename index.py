@@ -40,7 +40,7 @@ elif menu == 'Sesi İngilizce yazıya çevir':
     data = ""
     try:
         data = r.recognize_google(audio, language='tr-tr')
-        data          ​= data.lower()
+        data = data.lower()
         st.write("Bunu Söyledin :" + data)
     except sr.UnknownValueError:
         st.write("Ne dediğini anlamadım")
