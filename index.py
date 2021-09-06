@@ -26,6 +26,8 @@ elif menu == 'Yazıyı İngilizce sese çevir':
         translator = Translator()
         translate_text = translator.translate(input, dest='en').text
         tts = gTTS(text=translate_text, lang='en', slow=False)
-        file = "output.mp3"
+        file = "/app/callin/output.mp3"
         tts.save(file)
-        playsound.playsound(file, block=False)
+        audioFile = open(file, 'rb')
+        audioBytes = audioFile.read()
+        st.audio(audioBytes, format='audio/ogg',start_time=0)
