@@ -6,6 +6,8 @@ import pydub as AudioSegment
 from googletrans import Translator
 #import sounddevice as sd
 from scipy.io.wavfile import write
+import playsound
+import os
 
 st.sidebar.title("ML çeviri denemeleri")
 menu = st.sidebar.radio("Ne yapmak istersiniz?", ("Yazıyı sese çeviri", "Yazıyı İngilizce sese çevir", "Sesi yazıya çeviri", "Sesi İngilizce yazıya çevir"))
