@@ -21,8 +21,8 @@ elif menu == 'Yazıyı İngilizce sese çevir':
     input = st.text_input("Ne söylememi istersin?")
     if input != "":
         translator = Translator()
-        translate_text = translator.translate(input, dest='en')  
-        tts = gTTS(text=translate_text.text, lang='en', slow=False)
+        translate_text = translator.translate(input, dest='en').text
+        tts = gTTS(text=translate_text, lang='en', slow=False)
         tts.save("output.mp3")
         audioFile = open('output.mp3', 'rb')
         audioBytes = audioFile.read()
