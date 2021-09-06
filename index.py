@@ -33,18 +33,3 @@ elif menu == 'Yazıyı İngilizce sese çevir':
 elif menu == 'Sesi İngilizce yazıya çevir':
     r = sr.Recognizer()
     st.write(sd.query_devices())
-    fs = 44100 
-    seconds = 5
-    myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=1, dtype='int16')
-    sd.wait()  
-    write('/app/callin/output.wav', fs, myrecording) 
-
-    with sr.AudioFile('/app/callin/output.wav') as source:
-        audio = r.listen(source)  
-    try:
-        text = r.recognize_google(audio, language="tr-tr")
-        translator = Translator()
-        translate_text = translator.translate(input, dest='en').text
-        st.write(translate_text)
-    except sr.UnknownValueError:
-        st.write("Söylediğini anlamadım")
