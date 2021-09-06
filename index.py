@@ -23,7 +23,7 @@ elif menu == 'Yazıyı İngilizce sese çevir':
         translator = Translator()
         translate_text = translator.translate(input, dest='en').text
         tts = gTTS(text=translate_text, lang='en', slow=False)
-        tts.save("output.mp3")
-        audioFile = open('output.mp3', 'rb')
-        audioBytes = audioFile.read()
-        st.audio(audioBytes, format='audio/ogg',start_time=0)
+        file = "output.mp3"
+        tts.save(file)
+        playsound.playsound(file, True)
+        os.remove(file)
