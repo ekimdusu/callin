@@ -3,7 +3,7 @@ import speech_recognition as sr
 from gtts import gTTS 
 from os import path
 import pydub as AudioSegment
-from google_trans_new import google_translator  
+from googletrans import Translator
 #import sounddevice as sd
 from scipy.io.wavfile import write
 
@@ -20,9 +20,9 @@ if menu == 'Yazıyı sese çeviri':
 elif menu == 'Yazıyı İngilizce sese çevir':
     input = st.text_input("Ne söylememi istersin?")
     if input != "":
-        translator = google_translator()  
-        translate_text = translator.translate(input, lang_tgt='en')  
-        tts = gTTS(text=translate_text, lang='en', slow=False)
+        translator = Translator()
+        translate_text = translator.translate(input, dest='en')  
+        tts = gTTS(text=translate_text.text, lang='en', slow=False)
         tts.save("output.mp3")
         audioFile = open('output.mp3', 'rb')
         audioBytes = audioFile.read()
