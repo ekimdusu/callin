@@ -4,7 +4,7 @@ from gtts import gTTS
 from os import path
 import pydub as AudioSegment
 from googletrans import Translator
-#import sounddevice as sd
+import sounddevice as sd
 from scipy.io.wavfile import write
 import os
 
