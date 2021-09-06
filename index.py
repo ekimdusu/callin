@@ -15,20 +15,15 @@ if menu == 'Yazıyı sese çeviri':
     input = st.text_input("Ne söylememi istersin?")
     if input != "":
         tts = gTTS(text=input, lang='tr', slow=False)
-        tts.save("output.mp3")
-        audioFile = open('output.mp3', 'rb')
-        audioBytes = audioFile.read()
-        st.audio(audioBytes, format='audio/ogg',start_time=0)
-        cwd = os.getcwd()  # Get the current working directory (cwd)
-        files = os.listdir(cwd)  # Get all the files in that directory
-        st.write("Files in %r: %s" % (cwd, files))
+        file = "/app/callin/output.mp3"
+        tts.save(file)
+        playsound.playsound(file, True)
 elif menu == 'Yazıyı İngilizce sese çevir':
     input = st.text_input("Ne söylememi istersin?")
     if input != "":
         translator = Translator()
         translate_text = translator.translate(input, dest='en').text
         tts = gTTS(text=translate_text, lang='en', slow=False)
-        file = "output.mp3"
+        file = "/app/callin/output.mp3"
         tts.save(file)
         playsound.playsound(file, True)
-        os.remove(file)
