@@ -32,7 +32,7 @@ elif menu == 'Yazıyı İngilizce sese çevir':
         st.audio(audioBytes, format='audio/ogg',start_time=0)
 elif menu == 'Sesi İngilizce yazıya çevir':
     r = sr.Recognizer()
-    #st.write(sd.query_devices())
+    st.write(sd.query_devices())
     fs = 44100 
     seconds = 5
     myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=1, dtype='int16')
