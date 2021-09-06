@@ -10,7 +10,7 @@ import playsound
 import os
 
 st.sidebar.title("ML çeviri denemeleri")
-menu = st.sidebar.radio("Ne yapmak istersiniz?", ("Yazıyı sese çeviri", "Yazıyı İngilizce sese çevir", "Sesi yazıya çeviri", "Sesi İngilizce yazıya çevir"))
+menu = st.sidebar.radio("Ne yapmak istersiniz?", ("Yazıyı sese çeviri", "Yazıyı İngilizce sese çevir", "Sesi yazıya çevir", "Sesi İngilizce yazıya çevir"))
 if menu == 'Yazıyı sese çeviri':
     input = st.text_input("Ne söylememi istersin?")
     if input != "":
@@ -31,7 +31,7 @@ elif menu == 'Yazıyı İngilizce sese çevir':
         audioFile = open(file, 'rb')
         audioBytes = audioFile.read()
         st.audio(audioBytes, format='audio/ogg',start_time=0)
-elif menu == 'Sesi İngilizce yazıya çevir':
+elif menu == 'Sesi yazıya çevir':
     r = sr.Recognizer()
     with sr.Microphone() as source:
         st.write("Birşeyler Söyle!")
