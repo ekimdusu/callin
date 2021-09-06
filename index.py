@@ -21,7 +21,7 @@ if menu == 'Yazıyı sese çeviri':
         st.audio(audioBytes, format='audio/ogg',start_time=0)
         cwd = os.getcwd()  # Get the current working directory (cwd)
         files = os.listdir(cwd)  # Get all the files in that directory
-        print("Files in %r: %s" % (cwd, files))
+        st.write("Files in %r: %s" % (cwd, files))
 elif menu == 'Yazıyı İngilizce sese çevir':
     input = st.text_input("Ne söylememi istersin?")
     if input != "":
