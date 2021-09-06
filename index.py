@@ -38,7 +38,7 @@ elif menu == 'Sesi İngilizce yazıya çevir':
     seconds = 5
     myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=1, dtype='int16')
     sd.wait()  
-    write('output.wav', fs, myrecording) 
+    write('/app/callin/output.wav', fs, myrecording) 
 
     with sr.AudioFile('/app/callin/output.wav') as source:
         audio = r.listen(source)  
