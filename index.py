@@ -6,7 +6,6 @@ import pydub as AudioSegment
 from googletrans import Translator
 #import sounddevice as sd
 from scipy.io.wavfile import write
-import playsound
 import os
 
 st.sidebar.title("ML çeviri denemeleri")
@@ -31,16 +30,21 @@ elif menu == 'Yazıyı İngilizce sese çevir':
         audioFile = open(file, 'rb')
         audioBytes = audioFile.read()
         st.audio(audioBytes, format='audio/ogg',start_time=0)
-elif menu == 'Sesi yazıya çevir':
+elif menu == 'Sesi İngilizce yazıya çevir':
     r = sr.Recognizer()
-    with sr.Microphone() as source:
-        st.write("Birşeyler Söyle!")
-        audio = r.listen(source)
     #st.write(sd.query_devices())
-    data = ""
+    fs = 44100 
+    seconds = 5
+    myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=1, dtype='int16')
+    sd.wait()  
+    write('/app/callin/output.wav', fs, myrecording) 
+
+    with sr.AudioFile('/app/callin/output.wav') as source:
+        audio = r.listen(source)  
     try:
-        data = r.recognize_google(audio, language='tr-tr')
-        data = data.lower()
-        st.write("Bunu Söyledin :" + data)
+        text = r.recognize_google(audio, language="tr-tr")
+        translator = Translator()
+        translate_text = translator.translate(input, dest='en').text
+        st.write(translate_text)
     except sr.UnknownValueError:
-        st.write("Ne dediğini anlamadım")
+        st.write("Söylediğini anlamadım")
